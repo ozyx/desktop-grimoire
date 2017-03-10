@@ -1,0 +1,9 @@
+{
+  "name": "desktop-grimoire",
+  "version": "0.0.0",
+  "description": "desktop version of grimoire website",
+  "main": "index.js",
+  "repository": "https://github.com/ozyx/desktop-grimoire.git",
+  "author": "Jesse Mazzella",
+  "license": "MIT"
+}

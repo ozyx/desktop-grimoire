@@ -1,0 +1,49 @@
+{
+  "name": "desktop-grimoire",
+  "version": "0.0.0",
+  "description": "desktop version of grimoire website for convenience",
+  "main": "index.js",
+  "repository": "https://github.com/ozyx/desktop-grimoire.git",
+  "author": "ozyx <jessemazzella@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/electron": "^1.4.33",
+    "@types/node": "^7.0.8",
+    "electron": "^1.6.2",
+    "electron-builder": "^15.2.0",
+    "gulp": "^3.9.1",
+    "gulp-tslint": "^7.1.0",
+    "gulp-typescript": "^3.1.5",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.1",
+    "winston": "^2.3.1"
+  },
+  "build": {
+          "files": "**/*.js",
+          "productName": "desktop-grimoire",
+          "appId": "desktop.grimoire",
+          "directories": {
+              "buildResources": "dist",
+              "output": "dist"
+          },
+          "mac": {
+              "category": "dnd.reference.grimoire"
+          },
+          "win":
+          {
+              "iconUrl": "(windows only) https link to icon"
+          },
+          "linux": {
+              "category": "dnd.reference",
+              "target": "tar.gz"
+          }
+  },
+  "scripts": {
+  	  "test": "echo \"Error: no test specified\" && exit 1",
+  	  "postinstall": "install-app-deps",
+    	  "prestart": "gulp",
+  	  "start": "electron ./dist/index.js",
+          "dev": "NODE_ENV='development' npm run start",
+          "dist": "./node_modules/.bin/build"
+  }
+}

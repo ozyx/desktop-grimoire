@@ -41,8 +41,8 @@
   "scripts": {
   	  "test": "echo \"Error: no test specified\" && exit 1",
   	  "postinstall": "install-app-deps",
-    	  "prestart": "gulp && jekyll serve -Vw --no-watch --baseurl \"\"",
-  	  "start": "electron ./dist/index.js",
+    	  "prestart": "gulp",
+  	  "start": "jekyll serve -s ./app -Vw --no-watch --baseurl \"\" & electron ./dist/index.js",
           "dev": "NODE_ENV='development' npm run start",
           "dist": "./node_modules/.bin/build"
   }

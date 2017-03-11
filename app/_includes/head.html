@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+	<!-- Insert this line above script imports  -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="http://use.typekit.net/nra6zxt.js"></script>
     <script src="{{ "/js/jets.min.js" | prepend: site.baseurl }}"></script>
     <script>try{Typekit.load();}catch(e){}</script>
@@ -32,4 +34,6 @@
 	    }
     </script>
     <script src="{{ '/js/tagsearch.js' | prepend: site.baseurl }}"></script>
+	<!-- Insert this line after script imports -->
+	<script>if (window.module) module = window.module;</script>
 </head>

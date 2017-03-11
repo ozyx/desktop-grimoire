@@ -38,12 +38,12 @@
               "target": "tar.gz"
           }
   },
-  "scripts": {
-  	  "test": "echo \"Error: no test specified\" && exit 1",
-  	  "postinstall": "install-app-deps",
-    	  "prestart": "gulp",
-  	  "start": "jekyll serve -s ./app -Vw --no-watch --baseurl \"\" & electron ./dist/index.js",
-          "dev": "NODE_ENV='development' npm run start",
-          "dist": "./node_modules/.bin/build"
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "install-app-deps",
+        "prestart": "gulp && jekyll build -s ./app -Vw --no-watch --baseurl \"\"",
+        "start": "jekyll serve -s ./app -Vw --skip-initial-build & electron ./dist/index.js",
+        "dev": "NODE_ENV='development' npm run start",
+        "dist": "./node_modules/.bin/build"
   }
 }

@@ -39,3 +39,7 @@ jspm_packages
 # build folder
 dist/
 
+_site/
+.sass-cache/
+.vscode
+

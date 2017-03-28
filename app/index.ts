@@ -4,7 +4,7 @@ import { menuTemplate } from "./menu";
 import * as child_process from "child_process";
 import * as path from "path";
 import * as url from "url";
-const spawn = child_process.spawn;
+const spawnSync = child_process.spawnSync;
 const version = require("../package.json").version;
 
 // set application title
@@ -13,7 +13,7 @@ let win;
 
 app.setName(appTitle);
 
-function createWindow() {
+function createWindow(): void {
     win = new BrowserWindow({
         width: 1000,
         height: 750,
@@ -31,7 +31,17 @@ function createWindow() {
     }));
 }
 
+/**
+ * A crappy way to solve this problem but it's the best
+ * solution I have right now...
+ */
+function killJekyll(): void {
+    let ps = spawnSync("ps", ["-C", "jekyll", "-o", "pid="]);
+    let pid: any = ps.stdout;
+    if (pid) {
+        process.kill(pid);
+    }
+}
+
 app.on("ready", createWindow);
-app.on("window-all-closed", () => {
-    // kill jekyll server somehow
-});
+app.on("window-all-closed", killJekyll);
